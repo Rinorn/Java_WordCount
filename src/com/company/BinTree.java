@@ -19,7 +19,6 @@ public class BinTree {
         else{
             Node focusNode = root;
             Node parent;
-
             while(true){
                 parent = focusNode;
                 //it the word already exists in the tree, the counter for the node containing the word will increase by 1.
@@ -34,7 +33,8 @@ public class BinTree {
                         parent.leftChild = newNode;
                         return;
                     }
-                } else{
+                } 
+                else{
                     focusNode = focusNode.rightChild;
                     if(focusNode == null){
                         parent.rightChild = newNode;
@@ -44,6 +44,7 @@ public class BinTree {
             }
         }
     }
+    
     //Traverses the tree and writes it out.
     public void traverseTreeInOrder(Node focusNode){
         if(focusNode != null){
@@ -53,19 +54,17 @@ public class BinTree {
         }
     }
 
-
     //specifies a node
     class Node{
         String data;
         int counter;
         Node leftChild;
         Node rightChild;
-
+        
         Node(String word){
             this.data = word;
             this.counter = 1;
         }
-
         public String toString(){
             return data + " Occurs "+ counter + " times";
         }
@@ -99,7 +98,6 @@ public class BinTree {
             String words[] = everything.split("[^\\p{L}']+");
             for (int i = 0; i < words.length;i++){
                 words[i] = words[i].toUpperCase();
-
                 tree.addNode(words[i]);
             }
             System.out.println(everything);
@@ -109,7 +107,6 @@ public class BinTree {
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
 
